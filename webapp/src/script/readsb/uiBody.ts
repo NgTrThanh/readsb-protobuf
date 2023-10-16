@@ -1236,7 +1236,15 @@ namespace READSB {
             } else if (l > 95) {
                 l = 95;
             }
-            return `hsl(${Math.round(h / 5) * 5},${Math.round(s / 5) * 5}%,${Math.round(l / 5) * 5}%)`;
+            // return `hsl(${Math.round(h / 5) * 5},${Math.round(s / 5) * 5}%,${Math.round(l / 5) * 5}%)`;
+			
+			let hueRotate: number;
+
+			hueRotate = ac.Altitude / 111; // Calculate the hueRotate value
+			hueRotate = Math.max(15, hueRotate); // Set the minimum value of 15
+			hueRotate = Math.min(355, hueRotate); // Set the maximum value of 355
+
+			return `hsl(${hueRotate}, 100%, 40%)`;	
         }
 
         /**
